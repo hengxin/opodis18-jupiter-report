@@ -1,0 +1,67 @@
+% file: parts/jupiter.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\Huge \teal{Jupiter}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large Jupiter adopts the \red{client-server} architecture~\ncite{Nichols:UIST95}:}
+
+  \begin{center}
+    \begin{minipage}{0.50\textwidth}
+      \input{tikz/jupiter-cs-tikz}
+    \end{minipage}
+  \end{center}
+
+  \vspace{-1.00cm}
+  \uncover<2->{
+    \begin{center}
+      Operations are \red{totally ordered} at the server {\footnotesize (replica)}. \\[6pt]
+      Client {\footnotesize (replica)} $\xrightarrow[]{\quad \text{FIFO} \quad}$ server $\xrightarrow[]{\quad \text{FIFO} \quad}$ other clients
+    \end{center}
+  }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    {\large To achieve convergence, Jupiter uses \red{$2D$ state spaces}~\ncite{Xu:CSCW14}
+    to manage how and when to perform \red{OTs}~\footnote{OT: Operational Transformation}~\ncite{Ellis:SIGMOD89}.}
+  \end{center}
+
+  \fignocaption{width = 0.32\textwidth}{figs/2d-statespace}
+
+  \begin{center} 
+    There can be \red{$\le 2$ edges} coming from the same node ({\textsc{\footnotesize Local}} or \textsc{\footnotesize Global}).
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large Each \red{client} maintains a $2D$ state space.}
+
+  % \fignocaption{width = 0.50\textwidth}{figs/jupiter-illustration-client3-notations}
+  \fignocaption{width = 0.60\textwidth}{figs/jupiter-illustration}
+
+  \centerline{\large The \red{server} maintains $n \; (=3)$ $2D$ state spaces, one for each client.}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    {\large \red{Global property} on all replica states specified by \blue{\wlspec{}}}
+
+    \vspace{0.20cm}
+    \fignocaption{width = 0.30\textwidth}{figs/mismatch}
+    \vspace{0.20cm}
+
+    {\large \red{Local view} each replica maintains in \blue{Jupiter}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%

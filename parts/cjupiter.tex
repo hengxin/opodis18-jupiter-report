@@ -1,0 +1,50 @@
+% file: parts/cjupter.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\Huge \teal{CJupiter (Compact Jupiter)}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    {\large CJupiter maintains an \red{$n$-ary ordered state space} for each replica.}
+  \end{center}
+
+  \fignocaption{width = 0.40\textwidth}{figs/cjupiter-allinone}
+
+  \begin{center} 
+    There can be \red{more than two edges} coming from the same node. \\[5pt]
+    Edges from the same node are \red{totally ordered} by associated operations.
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \begin{prop}[Compactness of CJupiter (Informal)]
+      {\large At a high level, CJupiter maintains only \red{one} $n$-ary ordered state space.}
+    \end{prop}
+
+    \vspace{0.20cm}
+    % \resizebox{0.50\textwidth}{!}{\input{tikz/cjupiter-allinone-path}}
+    \fignocaption{width = 0.40\textwidth}{figs/cjupiter-allinone-path}
+
+    \vspace{0.20cm}
+    Each replica behavior corresponds to a \red{path} going through this state space.
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{Theorem}[Equivalence of CJupiter and Jupiter]
+    Under the same schedule, the behaviors of corresponding replicas in CJupiter and Jupiter are the same.
+  \end{Theorem}
+
+  \vspace{1.0cm}
+  \centerline{\large From the perspectives of both the server and the clients.}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,88 @@
+% file: preamble.tex
+\usepackage{lmodern}
+
+% \usepackage{xeCJK}
+\usetheme{CambridgeUS} % try Pittsburgh
+\usecolortheme{beaver}
+\usefonttheme[onlymath]{serif} % try "professionalfonts"
+
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage{amsmath, amsfonts, latexsym, mathtools, tabu}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\ps}[1]{\mathcal{P}(#1)}
+\usepackage{bm}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\newcommand{\hStatex}[0]{\vspace{5pt}}
+
+\newtheorem*{prop}{Proposition}
+
+% colors
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\redoverlay}[2]{\textcolor<#2>{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\greenoverlay}[2]{\textcolor<#2>{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\blueoverlay}[2]{\textcolor<#2>{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+\newcommand{\lgray}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+\newcommand{\brown}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\wlspec}{$\mathcal{A}_{\text{weak}}$}
+
+% colorded box
+\newcommand{\rbox}[1]{\red{\boxed{#1}}}
+\newcommand{\gbox}[1]{\green{\boxed{#1}}}
+\newcommand{\bbox}[1]{\blue{\boxed{#1}}}
+\newcommand{\pbox}[1]{\purple{\boxed{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[linewidth = 1pt, framemethod = TikZ]{mdframed}
+\mdfsetup{frametitlealignment=\center}
+
+% \usepackage{subfig}
+
+\usepackage[export]{adjustbox}
+% for fig without caption: #1: width/size; #2: fig file
+\newcommand{\fignocaption}[2]{
+  \begin{figure}[htp]
+    \centering
+      \includegraphics[#1]{#2}
+  \end{figure}
+}
+
+\usepackage[natbib = true, backend = bibtex, style = authoryear]{biblatex}
+% \usepackage[backend = biber, style = authoryear]{biblatex}
+\setbeamertemplate{bibliography item}[article]
+\renewcommand*{\bibfont}{\footnotesize}
+\addbibresource{opodis18-jupiter-report.bib}
+
+\newcommand{\ncite}[1]{\violet{\footnotesize [\cite{#1}]}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, mindmap, shadows, calc, arrows.meta, backgrounds, fit, shapes}
+
+\newcommand*{\circled}[2][]{\tikz[baseline=(C.base)]{
+    \node[inner sep = 0pt] (C) {\vphantom{1g}#2};
+    \node[draw, circle, inner sep = 3pt, yshift = 1pt, fill = red!40, opacity = 0.5]
+        at (C.center) {\vphantom{1g}};}}
+
+\newcommand{\titletext}{Specification and Implementation of Replicated List}
+
+\newcommand{\thankyou}{
+  \begin{frame}{}
+    \begin{columns}
+      \column{0.50\textwidth}
+	\fignocaption{width = 0.80\textwidth}{figs/thankyou}
+      \column{0.50\textwidth}
+	\fignocaption{width = 0.70\textwidth}{figs/qa-green}
+    \end{columns}
+  \end{frame}
+}
+
+\usepackage{appendixnumberbeamer}
