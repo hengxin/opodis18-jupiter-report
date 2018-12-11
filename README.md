@@ -1,14 +1,25 @@
-# podc18-jupiter-report
+# opodis18-jupiter-report 
 
-Report (brief announcement) prepared for the PODC'2018 conference
+Report prepared for the OPODIS'2018 conference.
 
-# TODO
-## Background
+## Overview
 
-- [ ] fig:sharelatex vs. fig:overleaf
-- [x] system model: replication
+## Replicated List
 - [ ] Del(a, p) vs. Del(p)
 
-## Problem
+## Common Specification 
+- [ ] To add: It is relatively easy to prove that Jupiter satisfies such a common specification.
+
+## Jupiter
+
+## Weak List Specification
+
+## The Proof
+
+## Future Work
 
 ## Bib
+
+## Checklist
+- [ ] Spellcheck
+- [ ] Formatting

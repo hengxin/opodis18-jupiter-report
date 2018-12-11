@@ -1,10 +1,11 @@
 % file: preamble.tex
 \usepackage{lmodern}
+\usepackage{todonotes}
 
 % \usepackage{xeCJK}
 \usetheme{CambridgeUS} % try Pittsburgh
 \usecolortheme{beaver}
-\usefonttheme[onlymath]{serif} % try "professionalfonts"
+\usefonttheme[]{serif} % try "professionalfonts"; also try ``onlymath'' in []
 
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
@@ -19,6 +20,8 @@
 \newcommand{\hStatex}[0]{\vspace{5pt}}
 
 \newtheorem*{prop}{Proposition}
+
+\newcommand{\hl}[1]{\fcolorbox{yellow}{yellow!60}{#1}}
 
 % colors
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -49,7 +52,7 @@
 
 \usepackage[export]{adjustbox}
 % for fig without caption: #1: width/size; #2: fig file
-\newcommand{\fignocaption}[2]{
+\newcommand{\fig}[2]{
   \begin{figure}[htp]
     \centering
       \includegraphics[#1]{#2}
@@ -78,9 +81,9 @@
   \begin{frame}{}
     \begin{columns}
       \column{0.50\textwidth}
-	\fignocaption{width = 0.80\textwidth}{figs/thankyou}
+	\fig{width = 0.80\textwidth}{figs/thankyou}
       \column{0.50\textwidth}
-	\fignocaption{width = 0.70\textwidth}{figs/qa-green}
+	\fig{width = 0.70\textwidth}{figs/qa-green}
     \end{columns}
   \end{frame}
 }
