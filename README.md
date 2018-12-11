@@ -7,14 +7,19 @@ Report prepared for the OPODIS'2018 conference.
 ## Replicated List
 - [ ] Del(a, p) vs. Del(p)
 
-## Common Specification 
-- [ ] To add: It is relatively easy to prove that Jupiter satisfies such a common specification.
+## Weak List Specification
+- [x] Common Spec.
 
 ## Jupiter
+- [ ] Animation for the system model
+  - [ ] Respond (left arrow)
+- [ ] Animation: A simple yet infeasible solution
+- [ ] Animation: Jupiter protocol
 
-## Weak List Specification
+## CJupiter
 
 ## The Proof
+- [ ] To add: It is relatively easy to prove that Jupiter satisfies such a common specification.
 
 ## Future Work
 
