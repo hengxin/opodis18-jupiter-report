@@ -9,31 +9,15 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    {\large CJupiter maintains an \red{$n$-ary ordered state space} for each replica.}
+    {\large CJupiter maintains an \hl{$n$-ary ordered state space} for each replica.}
   \end{center}
 
   \fig{width = 0.40\textwidth}{figs/cjupiter-allinone}
 
   \begin{center} 
-    There can be \red{more than two edges} coming from the same node. \\[5pt]
-    Edges from the same node are \red{totally ordered} by associated operations.
-  \end{center}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{center}
-    \begin{prop}[Compactness of CJupiter (Informal)]
-      {\large At a high level, CJupiter maintains only \red{one} $n$-ary ordered state space.}
-    \end{prop}
-
-    \vspace{0.20cm}
-    % \resizebox{0.50\textwidth}{!}{\input{tikz/cjupiter-allinone-path}}
-    \fig{width = 0.40\textwidth}{figs/cjupiter-allinone-path}
-
-    \vspace{0.20cm}
-    Each replica behavior corresponds to a \red{path} going through this state space.
+    There can be \red{more than two edges} coming from the same node. \\[5pt] \pause
+    Edges from the same node are \red{totally ordered} according to \\[2pt] 
+    the \red{serialization order} of associated operations.
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -44,7 +28,53 @@
     Under the same schedule, the behaviors of corresponding replicas in CJupiter and Jupiter are the same.
   \end{Theorem}
 
-  \vspace{1.0cm}
-  \centerline{\large From the perspectives of both the server and the clients.}
+  \vspace{0.80cm}
+  \begin{columns}
+    \column{0.80\textwidth}
+      \begin{description}
+	\item[Schedule:] \textsc{Issue}, \textsc{Send}, and \textsc{Receive} of operations
+	\item[Behavior:] A sequence of replica states
+      \end{description}
+  \end{columns}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{center}
+    {\large \hl{Equivalence} from the perspectives of both the server and clients.}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\teal{\large At the server side:}}
+  \begin{prop}[$n \leftrightarrow 1$ (Informal)]
+    The \cyan{single $n$-ary ordered state space} at the server side in CJupiter \\
+    is a \red{union} of \cyan{$n$ $2D$ state spaces} at the server side in Jupiter.
+  \end{prop}
+
+  \pause
+  \vspace{1.20cm}
+  \centerline{\teal{\large At the client side:}}
+  \begin{prop}[$1 \leftrightarrow 1$ (Informal)]
+    Jupiter is \red{slightly optimized in implementation} at clients by eliminating redundant OTs in CJupiter.
+  \end{prop}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{prop}[Compactness of CJupiter (Informal)]
+    {\large At a high level, CJupiter maintains only \red{one} $n$-ary ordered state space.}
+  \end{prop}
+
+  \begin{center}
+    \resizebox{0.40\textwidth}{!}{\input{tikz/cjupiter-allinone-path}}
+    % \fig{width = 0.40\textwidth}{figs/cjupiter-allinone-path}
+
+    \pause
+    All replica states are represented in a single data structure. \\[5pt] \pause
+    Each replica behavior corresponds to a \red{path} going through this state space.
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%

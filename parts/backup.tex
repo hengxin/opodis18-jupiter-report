@@ -4,20 +4,17 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{center}
-    \teal{\Large 
-      We are now actively working on \\[8pt]
-      model checking/verifying Jupiter using \red{TLA+/TLAPS}. \\[4pt]
-    }
-  \end{center}
-
-  \fignocaption{width = 0.35\textwidth}{figs/tlaplus}
+  \centerline{\teal{\Huge Backup}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\teal{\Huge Backup}}
+  \centerline{\red{\large Does Jupiter satisfy the weak list specification?}}
+
+  \fig{width = 0.25\textwidth}{figs/research-problem}
+
+  \centerline{\blue{\LARGE Yes, it does.}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -26,7 +23,7 @@
   \centerline{\Large \teal{Replication {\normalsize (for availability)}}}
   \vspace{-0.20cm}
   
-  \fignocaption{width = 0.50\textwidth}{figs/googledoc-replication}
+  \fig{width = 0.50\textwidth}{figs/googledoc-replication}
 
   \pause
   \vspace{-0.50cm}
@@ -40,33 +37,12 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[Eventual Convergence (EC)~\ncite{Ellis:SIGMOD89}]
-    The lists at all replicas are identical \purple{\it at quiescence}.
-  \end{definition}
-
-  \vspace{0.50cm}
-
-  % \vspace{-0.50cm}
-  % \fignocaption{width = 0.25\textwidth}{figs/specs}
-  % \vspace{-0.50cm}
-
-  \begin{definition}[Strong Eventual Consistency (SEC)~\ncite{Shapiro:SSS11}]
-    The lists at the replicas that \purple{\it have executed the same set of user operations} are identical.
-  \end{definition}
-
-  \vspace{1.00cm}
-  \centerline{\red{\large Specify little on \teal{\it intermediate states} going through by replicas.}}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
   \begin{center}
     \red{\large Strong/weak list specification}~\ncite{Attiya:PODC16} \\[6pt]
     \teal{Specify global properties on all states across the system.}
   \end{center}
 
-  \fignocaption{width = 0.80\textwidth, frame}{figs/podc16-attiya}
+  \fig{width = 0.80\textwidth, frame}{figs/podc16-attiya}
 
   \pause
   \vspace{0.50cm}
@@ -83,7 +59,7 @@
 \begin{frame}{}
   \centerline{It is still challenging to achieve convergence despite the server.}
   
-  \fignocaption{width = 0.50\textwidth}{figs/jupiter-cs}
+  \fig{width = 0.50\textwidth}{figs/jupiter-cs}
 
   \begin{center}
     Serializability may not be desirable. \\[6pt]
@@ -103,13 +79,13 @@
 
   \begin{columns}
     \column{0.50\textwidth}
-      \fignocaption{width = 0.60\textwidth}{figs/ex-weak-list-spec}
+      \fig{width = 0.60\textwidth}{figs/ex-weak-list-spec}
       \vspace{-0.60cm}
-      \fignocaption{width = 0.40\textwidth}{figs/red-cross}
+      \fig{width = 0.40\textwidth}{figs/red-cross}
     \column{0.50\textwidth}
-      \fignocaption{width = 0.75\textwidth}{figs/ex-strong-list-spec}
+      \fig{width = 0.75\textwidth}{figs/ex-strong-list-spec}
       \vspace{-0.60cm}
-      \fignocaption{width = 0.30\textwidth}{figs/green-check}
+      \fig{width = 0.30\textwidth}{figs/green-check}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -139,9 +115,9 @@
 
   \begin{columns}[c]
     \column{0.50\textwidth}
-      \fignocaption{width = 0.70\textwidth}{figs/ot-tcs06}
+      \fig{width = 0.70\textwidth}{figs/ot-tcs06}
     \column{0.50\textwidth}
-      \fignocaption{width = 0.65\textwidth}{figs/ot}
+      \fig{width = 0.65\textwidth}{figs/ot}
       \[
 	\sigma; o_1; o_2' \equiv \sigma; o_2; o_1'
       \]
@@ -165,27 +141,6 @@
 \begin{frame}{}
   \centerline{\large Consider a replicated system with $n \; (=3)$ clients.}
 
-  \fignocaption{width = 0.50\textwidth}{figs/jupiter-schedule}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{Theorem}[Equivalence of CJupiter and Jupiter]
-    Under the same schedule, the behaviors of corresponding replicas in CJupiter and Jupiter are the same.
-  \end{Theorem}
-
-  \vspace{0.30cm}
-  \centerline{\large At the server side:}
-  \begin{prop}[$n \leftrightarrow 1$ (Informal)]
-    The single $n$-ary ordered state space at the server side in CJupiter 
-    is a \red{compact representation} of $n$ $2D$ state spaces at the server side in Jupiter.
-  \end{prop}
-
-  \vspace{0.30cm}
-  \centerline{\large At the client side:}
-  \begin{prop}[$1 \leftrightarrow 1$ (Informal)]
-    Jupiter is \red{slightly optimized in implementation} at clients by eliminating redundant OTs than CJupiter.
-  \end{prop}
+  \fig{width = 0.50\textwidth}{figs/jupiter-schedule}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%

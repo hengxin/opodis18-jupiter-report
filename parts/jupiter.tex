@@ -32,7 +32,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    {\large \red{Challenge:} Conflicts caused by concurrent operations} \\[12pt] \pause
+    {\large \red{Challenge:} \hl{Conflicts} caused by concurrent operations} \\[12pt] \pause
   \end{center}
 
   \missingfigure{conflicts}
@@ -40,21 +40,21 @@
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{center}
-    {\large A simple yet \red{infeasible} solution:} \pause
-  \end{center}
-
-  \begin{columns}
-    \column{0.60\textwidth}
-      \begin{enumerate}[(1)]
-	\item Replicas respond to local user operations immediately as required.
-	\item Updates are propogated to the server.
-	\item All updates are \red{totally ordered} at the server.
-	\item Replicas are notified to synchronize with the server.
-      \end{enumerate}
-  \end{columns}
-\end{frame}
+% \begin{frame}{}
+%   \begin{center}
+%     {\large A simple yet \red{infeasible} solution:} \pause
+%   \end{center}
+% 
+%   \begin{columns}
+%     \column{0.60\textwidth}
+%       \begin{enumerate}[(1)]
+% 	\item Replicas respond to local user operations immediately as required.
+% 	\item Updates are propogated to the server.
+% 	\item All updates are \red{totally ordered} at the server.
+% 	\item Replicas are notified to synchronize with the server.
+%       \end{enumerate}
+%   \end{columns}
+% \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
@@ -97,14 +97,43 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
+    \hl{Key Question:} \\[8pt]
+    When a replica $r$ receives an operation $o$ from another replica \\ redirected by the server,
+    how should $o$ be transformed?
+  
+    \pause
+    \vspace{0.80cm}
+    \red{Transformed with which operations and in what order?}
+
+    \pause
+    \vspace{0.80cm}
+
+    \hl{Key Ideas:} \\[6pt]
+    \begin{columns}
+      \column{0.90\textwidth}
+	\begin{enumerate}
+	  \item with \red{concurrent operations} previously executed at $r$
+	  \item in the \red{serialization order} established at the server
+	\end{enumerate}
+    \end{columns}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
     {\large Jupiter uses \hl{$2D$ state spaces}~\ncite{Xu:CSCW14} \\[5pt]
-    to manage how and when to perform \red{OTs}~\ncite{Ellis:SIGMOD89}.}
+    to manage the procedure of performing \red{OTs}~\ncite{Ellis:SIGMOD89}.}
   \end{center}
 
-  % \fig{width = 0.32\textwidth}{figs/2d-statespace}
   \fig{width = 0.40\textwidth}{figs/ot-diverge-two}
 
   \pause
+  \begin{center}
+    \teal{Edges are labeled with operations.}
+  \end{center}
+
   \begin{columns}
     \column{0.85\textwidth}
       \begin{description}[\textsc{Global} Dimension:]
@@ -122,7 +151,7 @@
   % \fig{width = 0.50\textwidth}{figs/jupiter-illustration-client3-notations}
   \fig{width = 0.65\textwidth}{figs/jupiter-illustration}
 
-  \centerline{\large The \red{server} maintains $n \; (=3)$ $2D$ state spaces, one for each client.}
+  \centerline{\large The \red{server} maintains $n \; \teal{(=3)}$ $2D$ state spaces, \purple{one for each client}.}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 

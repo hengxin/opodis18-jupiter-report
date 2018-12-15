@@ -12,10 +12,11 @@
     {\large We focus on a single $n$-ary ordered state space.}
   \end{center}
 
-  \fignocaption{width = 0.45\textwidth}{figs/cjupiter-allinone-path}
+  \fig{width = 0.40\textwidth}{figs/cjupiter-allinone-path}
 
   \begin{center}
-    {\large We show the \red{pairwise state compatibility} property \blue{in three steps}.}
+    {\large We show the \hl{pairwise state compatibility} property \blue{in three steps}.} \\[5pt] 
+    \red{By Contradiction, By Induction, and By Case Analysis.}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -30,7 +31,7 @@
 
   \begin{columns}
     \column{0.60\textwidth}
-      \fignocaption{width = 0.50\textwidth}{figs/lca}
+      \fig{width = 0.50\textwidth}{figs/lca}
       \column{0.30\textwidth}
 	\[
 	  v_0 = \text{LCA}(v_1, v_2)
@@ -50,7 +51,7 @@
 
   \begin{columns}
     \column{0.60\textwidth}
-	\fignocaption{width = 0.50\textwidth}{figs/disjoint-paths}
+	\fig{width = 0.50\textwidth}{figs/disjoint-paths}
       \column{0.30\textwidth}
 	\[
 	  v_0 = \text{LCA}(v_1, v_2)
@@ -69,7 +70,7 @@
 
   \begin{columns}
     \column{0.60\textwidth}
-	\fignocaption{width = 0.55\textwidth}{figs/compatible-paths}
+	\fig{width = 0.55\textwidth}{figs/compatible-paths}
       \column{0.40\textwidth}
 	\[
 	  v_0 = \text{LCA}(v_1, v_2)
@@ -80,17 +81,5 @@
 	  {In particular, \\ $v_1$ and $v_2$ are compatible.}
 	\end{center}
   \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{center}
-    \begin{mdframed}[frametitle = {\large Brief Announcement}, frametitlerule = true, frametitlebackgroundcolor = brown!20,
-      frametitleaboveskip = 8pt, frametitlebelowskip = 8pt, innertopmargin = 10pt]
-      {\Large The \blue{Jupiter protocol}~\ncite{Nichols:UIST95}\footfullcite{Nichols:UIST95} for replicated list \\
-      \red{satisfies} the \blue{weak list specification}~\ncite{Attiya:PODC16}\footfullcite{Attiya:PODC16}.} \\[15pt]
-    \end{mdframed}
-  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
