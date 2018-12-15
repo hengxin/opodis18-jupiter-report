@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    {\large Jupiter adopts the \red{client-server} architecture~\ncite{Nichols:UIST95}:} \\[3pt] \pause
+    {\large Jupiter adopts the \red{client-server} architecture~\ncite{Nichols:UIST95}:} \\[3pt]
     {\large $\blue{(n+1)}\; \text{replicas} \triangleq \blue{(n)}\; \text{\red{Client}} + \blue{(1)}\; \text{\red{Server}}$}
   \end{center}
 
@@ -32,35 +32,11 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    {\large \red{Challenge:} \hl{Conflicts} caused by concurrent operations} \\[12pt] \pause
+    {\large \red{Challenge:} \hl{Conflicts caused by concurrent operations}} \\ \pause
+    {\small \teal{(The server is not drawn.)}}
   \end{center}
 
-  \missingfigure{conflicts}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-% \begin{frame}{}
-%   \begin{center}
-%     {\large A simple yet \red{infeasible} solution:} \pause
-%   \end{center}
-% 
-%   \begin{columns}
-%     \column{0.60\textwidth}
-%       \begin{enumerate}[(1)]
-% 	\item Replicas respond to local user operations immediately as required.
-% 	\item Updates are propogated to the server.
-% 	\item All updates are \red{totally ordered} at the server.
-% 	\item Replicas are notified to synchronize with the server.
-%       \end{enumerate}
-%   \end{columns}
-% \end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \centerline{\hl{Operational Transformation} (OT)~\ncite{Ellis:SIGMOD89}}
-
+  \vspace{-0.50cm}
   \begin{columns}
     \column{0.40\textwidth}
       \begin{center}
@@ -71,6 +47,10 @@
 	\input{tikz/ot-tcs06-tikz}
       \end{center}
   \end{columns}
+
+  \begin{center}
+    \uncover<5->{\large \red{Solution:} \hl{Operational Transformation} (OT)~\ncite{Ellis:SIGMOD89}}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -79,7 +59,7 @@
   \fig{width = 0.40\textwidth}{figs/ot}
 
   \begin{equation*}
-    \text{\hl{Commutative}\;\; \resizebox{0.35\textwidth}{!}{$\sigma; o_1; o_2' \equiv \sigma; o_2; o_1'$}}
+    \text{\hl{Commutative:}\;\; \resizebox{0.35\textwidth}{!}{$\sigma; o_1; o_2' \equiv \sigma; o_2; o_1'$}}
   \end{equation*}
 
   \centerline{\ncite{Ellis:SIGMOD89}}
@@ -89,6 +69,8 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
+    \red{\large $Q:$ What if replicas diverge by $\ge 2$ steps?} \\[8pt]
+
     \resizebox{0.75\textwidth}{!}{\input{tikz/ot-diverge-two}}
   \end{center}
 \end{frame}
@@ -97,23 +79,23 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    \hl{Key Question:} \\[8pt]
+    \hl{Key Challenge to Solve:} \\[8pt]
     When a replica $r$ receives an operation $o$ from another replica \\ redirected by the server,
-    how should $o$ be transformed?
+    \purple{how should $o$ be transformed}?
   
     \pause
     \vspace{0.80cm}
-    \red{Transformed with which operations and in what order?}
+    \red{\large Transformed with which operations and in what order?}
 
     \pause
     \vspace{0.80cm}
 
-    \hl{Key Ideas:} \\[6pt]
+    \hl{Key Ideas:} \\[3pt]
     \begin{columns}
       \column{0.90\textwidth}
 	\begin{enumerate}
-	  \item with \red{concurrent operations} previously executed at $r$
-	  \item in the \red{serialization order} established at the server
+	  \item With \purple{concurrent operations} previously executed at $r$
+	  \item In the \purple{serialization order} of operations established at the server
 	\end{enumerate}
     \end{columns}
   \end{center}
@@ -129,11 +111,12 @@
 
   \fig{width = 0.40\textwidth}{figs/ot-diverge-two}
 
-  \pause
   \begin{center}
     \teal{Edges are labeled with operations.}
   \end{center}
 
+  \pause
+  \vspace{-0.30cm}
   \begin{columns}
     \column{0.85\textwidth}
       \begin{description}[\textsc{Global} Dimension:]
