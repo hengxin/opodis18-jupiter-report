@@ -11,7 +11,7 @@
 
     \pause
     \vspace{0.20cm}
-    {\large This was proposed as a \teal{\it conjecture} \\ in a PODC paper~\ncite{Attiya:PODC16}.}
+    {This was proposed as a \red{\it conjecture} in a PODC paper~\ncite{Attiya:PODC16}.}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -24,12 +24,15 @@
   \end{center}
 
   \pause
-  \begin{enumerate}[<+->]
-    \setlength{\itemsep}{12pt}
-    \item Why do we care about replicated list? 
-    \item What is the weak list specification?
-    \item How does the Jupiter protocol work?
-    \item How to prove that Jupiter satisfies the weak list specification?
-  \end{enumerate}
+  \begin{columns}
+    \column{0.70\textwidth}
+      \begin{enumerate}[<+->]
+	\setlength{\itemsep}{12pt}
+	\item Why do we care about replicated list? 
+	\item What is the \red{weak list specification} \wlspec{}?
+	\item How does the \red{Jupiter} protocol work?
+	\item How to prove that Jupiter satisfies \wlspec{}?
+      \end{enumerate}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%

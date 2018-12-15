@@ -25,23 +25,23 @@
     \trans{0.south east}{r.north west}{$\textsc{Del(3)}$}{fill = red!20}{}
   }
 
-  \uncover<3->{
+  \uncover<4->{
     \state{llr}{below right = of ll.center, fill = yellow!40}{$1$}
   }
 
-  \uncover<4->{
+  \uncover<3->{
     \state{lr}{below left = of r.center}{$12$}
     \trans{l.south east}{lr.north west}{$\textsc{Del}(2)$}{below = 5pt, fill = red!20}{dashed}
     \trans{r.south west}{lr.north east}{$\textsc{Del}(0)$}{below = 5pt}{}
   }
 
-  \uncover<5->{
+  \uncover<4->{
     \trans{ll.south east}{llr.north west}{$\textsc{Del}(1)$}{below = 5pt, fill = red!20}{dashed}
     \trans{lr.south west}{llr.north east}{$\textsc{Del}(1)$}{below = 5pt}{}
   }
 
-  \uncover<6->{
-    \state{rr}{below right = of r.center}{}
-    \trans{r.south east}{rr.north west}{$o$}{scale = 1.5, fill = red!20}{}
-  }
+  % \uncover<6->{
+  %   \state{rr}{below right = of r.center}{}
+  %   \trans{r.south east}{rr.north west}{$o$}{scale = 1.5, fill = red!20}{}
+  % }
 \end{tikzpicture}
